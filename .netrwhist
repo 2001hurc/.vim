@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/hurc'
+let g:netrw_dirhist_2='/home/hurc/.vim'
+let g:netrw_dirhist_3='/media/hurc/_dde_data/home/hurc/blog/.bak/_post'
+let g:netrw_dirhist_4='/home/hurc'
+let g:netrw_dirhist_5='/home'
+let g:netrw_dirhist_6='/media/hurc/_dde_data/home/hurc/localbook/shengwu'
+let g:netrw_dirhist_7='/home/hurc/.vim'
+let g:netrw_dirhist_8='/home/hurc/.vim/plugged/markdown-preview.nvim'
