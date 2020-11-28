@@ -37,9 +37,7 @@ noremap j h
 noremap J 0
 " L 移到行末
 noremap L $
-" I 移到屏幕开头
 noremap I 7k
-" K 移到屏幕末尾
 noremap K 7j
 
 
@@ -53,7 +51,14 @@ noremap O o
 " 光标上行插入U
 noremap U O
 
-inoremap \; <><Esc>F<li
+" 撤销改为p
+noremap p u
+" 粘贴改为h
+noremap h p
+
+
+
+
 inoremap <C-j> <Left>
 inoremap <C-k> <Down>
 inoremap <C-i> <Up>
@@ -62,11 +67,15 @@ inoremap <C-l> <Right>
 
 
 
-autocmd Filetype markdown inoremap ,f <Esc>0/<++><CR>c4l
+autocmd Filetype markdown inoremap ,. <Esc>0/<++><CR>c4l
 
 autocmd Filetype markdown inoremap \'' <br><Enter>   
-autocmd Filetype markdown inoremap ,l []<s> <Esc>F[li
-autocmd Filetype markdown inoremap ,t ![](s) <Esc>F[li
+autocmd Filetype markdown inoremap \; <br><Enter>
+
+autocmd Filetype markdown inoremap <Shift><Enter> <br><Enter>
+
+autocmd Filetype markdown inoremap ,l [<++>]<<++>> <Esc>F[li
+autocmd Filetype markdown inoremap ,f [<++>](<++>) <Esc>F[li
 autocmd Filetype markdown inoremap  ,x **<Esc>F*li
 autocmd Filetype markdown inoremap ,m **** <++><Esc>F*hi
 autocmd Filetype markdown inoremap ,n ### 
@@ -75,16 +84,20 @@ autocmd Filetype markdown inoremap ,y ---<Enter>layout: post<Enter>title: "<++>"
 autocmd Filetype markdown inoremap ,d ```<Enter><Enter>```<Esc>ki
 autocmd Filetype markdown inoremap /, <sup></sup><++><Esc>9hi
 autocmd Filetype markdown inoremap /. <sub></sub><++><Esc>9hi
-autocmd Filetype markdown inoremap ,. <image src="http://hurc.gitee.io/pic/_pic/<++>" style="zoom: <++>%; /">
-
+autocmd Filetype markdown inoremap ,t <image src="http://hurc.gitee.io/pic/_pic/<++>" style="zoom: <++>%; /">
+autocmd Filetype markdown inoremap <Tab> &emsp;
 autocmd Filetype markdown noremap \m :MarkdownPreview<Enter>
 autocmd Filetype markdown noremap \M :StopMarkdownPreview<Enter>
-
 
 " markdown表格工具
 let g:table_mode_corner = '|'
 let g:table_mode_border=0
 let g:table_mode_fillchar=' '
+
+" MarkdownPreview有bug
+" let g:mkdp_path_to_chrome = "/bin/firefox"
+" let g:markdown_preview_sync_firefox_path = "/bin/firefox"
+let g:mkdp_browser = 'chromium'
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -99,3 +112,5 @@ inoreabbrev <expr> <bar><bar>
 inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+
