@@ -69,7 +69,8 @@ inoremap ,d <++>
 " 分式
 autocmd Filetype markdown inoremap ,f \frac{<++>}{<++>}
 autocmd Filetype markdown inoremap ,g \sqrt[]{2}
-autocmd Filetype markdown inoremap ,. <Esc>0/<++><CR>c4l
+
+" autocmd Filetype markdown inoremap ,. <Esc>0/<++><CR>c4l
 autocmd Filetype markdown inoremap ,d <++>
 autocmd Filetype markdown inoremap \'' <br><Enter>   
 autocmd Filetype markdown inoremap \; <br><Enter>
@@ -88,6 +89,15 @@ autocmd Filetype markdown inoremap ,t <image src="http://hurc.gitee.io/pic/_pic/
 autocmd Filetype markdown inoremap <Tab> &emsp;
 autocmd Filetype markdown noremap \m :MarkdownPreview<Enter>
 autocmd Filetype markdown noremap \M :StopMarkdownPreview<Enter>
+
+inoremap ./ <Esc>$a.<Enter>
+inoremap ,. <Esc>0/<++><CR>c4l
+
+
+
+
+
+
 
 " markdown表格工具
 let g:table_mode_corner = '|'
