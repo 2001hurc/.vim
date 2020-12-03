@@ -64,39 +64,30 @@ inoremap <C-k> <Down>
 inoremap <C-i> <Up>
 inoremap <C-l> <Right>
 
-inoremap ,d <++>
 
-" 分式
-autocmd Filetype markdown inoremap ,f \frac{<++>}{<++>}
-autocmd Filetype markdown inoremap ,g \sqrt[]{2}
 
-" autocmd Filetype markdown inoremap ,. <Esc>0/<++><CR>c4l
-autocmd Filetype markdown inoremap ,d <++>
+
+autocmd Filetype markdown inoremap ,. <Esc>0/<++><CR>c4l
+
 autocmd Filetype markdown inoremap \'' <br><Enter>   
 autocmd Filetype markdown inoremap \; <br><Enter>
-autocmd Filetype markdown inoremap ,k $$<++>\begin{cases}<++>\end{cases}$$
+
 autocmd Filetype markdown inoremap <Shift><Enter> <br><Enter>
+
 autocmd Filetype markdown inoremap ,l [<++>]<<++>> <Esc>F[li
+autocmd Filetype markdown inoremap ,f [<++>](<++>) <Esc>F[li
 autocmd Filetype markdown inoremap  ,x **<Esc>F*li
 autocmd Filetype markdown inoremap ,m **** <++><Esc>F*hi
 autocmd Filetype markdown inoremap ,n ### 
 autocmd Filetype markdown inoremap ,b ## 
 autocmd Filetype markdown inoremap ,y ---<Enter>layout: post<Enter>title: "<++>"<Enter>tags:  <Enter>---<Esc>2kF"i 
-autocmd Filetype markdown inoremap ,/ ```<Enter><Enter>```<Esc>ki
+autocmd Filetype markdown inoremap ,d ```<Enter><Enter>```<Esc>ki
 autocmd Filetype markdown inoremap /, <sup></sup><++><Esc>9hi
 autocmd Filetype markdown inoremap /. <sub></sub><++><Esc>9hi
 autocmd Filetype markdown inoremap ,t <image src="http://hurc.gitee.io/pic/_pic/<++>" style="zoom: <++>%; /">
 autocmd Filetype markdown inoremap <Tab> &emsp;
 autocmd Filetype markdown noremap \m :MarkdownPreview<Enter>
 autocmd Filetype markdown noremap \M :StopMarkdownPreview<Enter>
-
-inoremap ,. <Esc>0/<++><CR>c4l
-autocmd Filetype perl inoremap ./ <Esc>$a.<Enter>
-
-
-
-
-
 
 " markdown表格工具
 let g:table_mode_corner = '|'
@@ -106,7 +97,7 @@ let g:table_mode_fillchar=' '
 " MarkdownPreview有bug
 " let g:mkdp_path_to_chrome = "/bin/firefox"
 " let g:markdown_preview_sync_firefox_path = "/bin/firefox"
-let g:mkdp_browser = 'chromium'
+" let g:mkdp_browser = 'chromium'
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
