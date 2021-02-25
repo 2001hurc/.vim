@@ -56,7 +56,7 @@ noremap p u
 " 粘贴改为h
 noremap h p
 
-
+vnoremap Y "+y
 
 
 inoremap <C-j> <Left>
